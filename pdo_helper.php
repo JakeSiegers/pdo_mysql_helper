@@ -77,12 +77,16 @@
 			}
 		}
 
-		function fetch_assoc(){
-			return $this->preparedStatement->fetch(PDO::FETCH_ASSOC);
+		function row_count(){
+			return $this->preparedStatement->rowCount();
 		}
 
 		function lastError(){
 			return $this->errorDesc;
+		}
+
+		function fetch_assoc(){
+			return $this->preparedStatement->fetch(PDO::FETCH_ASSOC);
 		}
 
 		function fetch_all_assoc(){
