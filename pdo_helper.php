@@ -1,5 +1,5 @@
 <?php
-	//The Mysqli Helper 2014 - Jake Siegers
+	//The PDO Helper 2014 - Jake Siegers
 	//It's simple for now, it will grow as I need it to :)
 
 	//To do list:
@@ -90,7 +90,7 @@
 		}
 
 		function fetch_all_assoc(){
-			//This is the "recomonded way" to do this with pdo, but just looping over fetch assoc is easier, and what we do anyway (see below).
+			//This is the "recommended way" to do this with pdo, but just looping over fetch assoc is easier, and what we do anyway (see below).
 			//return $this->preparedStatement->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
 
 			//My way.
