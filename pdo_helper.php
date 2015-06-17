@@ -1,5 +1,5 @@
 <?php
-	//The PDO Helper 2014 - Jake Siegers
+	//The Mysqli Helper 2015 - Jake Siegers
 	//It's simple for now, it will grow as I need it to :)
 
 	//To do list:
@@ -77,7 +77,7 @@
 			}
 		}
 
-		function row_count(){
+		function rowCount(){
 			return $this->preparedStatement->rowCount();
 		}
 
@@ -85,12 +85,12 @@
 			return $this->errorDesc;
 		}
 
-		function fetch_assoc(){
+		function fetchAssoc(){
 			return $this->preparedStatement->fetch(PDO::FETCH_ASSOC);
 		}
 
-		function fetch_all_assoc(){
-			//This is the "recommended way" to do this with pdo, but just looping over fetch assoc is easier, and what we do anyway (see below).
+		function fetchAllAssoc(){
+			//This is the "recomonded way" to do this with pdo, but just looping over fetch assoc is easier, and what we do anyway (see below).
 			//return $this->preparedStatement->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
 
 			//My way.
