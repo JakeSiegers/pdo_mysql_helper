@@ -5,3 +5,4 @@ A PHP pdo_mysql helper class to make it easier to use.
 ```
 $dbc = new pdo_helper();
 ```
+[More Documentation coming very shortly]
