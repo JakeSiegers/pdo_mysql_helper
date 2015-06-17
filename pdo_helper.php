@@ -90,10 +90,6 @@
 		}
 
 		function fetchAllAssoc(){
-			//This is the "recomonded way" to do this with pdo, but just looping over fetch assoc is easier, and what we do anyway (see below).
-			//return $this->preparedStatement->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
-
-			//My way.
 			$result = array();
 			while($row = $this->preparedStatement->fetch(PDO::FETCH_ASSOC)){
 				$result[] = $row;
@@ -101,7 +97,6 @@
 			return $result;
 		}
 
-		//I guess...
 		function fetchColumn(){
 			return $this->preparedStatement->fetchColumn();
 		}
