@@ -1,7 +1,9 @@
 # pdo_helper
-This is a PHP PDO helper library I wrote to help me out with database operations in my projects.
+A PHP pdo_mysql helper class to make it easier to use.
 
-# Work In Progress!
-* This helper started back in 2014, and I add code to it as it becomes needed.
-* As of now, it doesn't completly support all PDO functionality, because I haven't needed it to... yet.
-* If you like it and want to add to it, please do!
+# Usage
+```
+<?php
+  var $dbc = new pdo_helper();
+?>
+```
