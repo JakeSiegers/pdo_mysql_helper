@@ -8,6 +8,12 @@ This library also supports parameterized queries, which you **should always use*
 
 # Usage
 ```
-$dbc = new pdo_helper();
+$dbc = new pdo_mysql_helper();
 ```
 [More Documentation coming very shortly]
+
+# Examples 
+
+You can find examples located in the examples folder. The current examples include
+* query.php - a basic mysql query example
+* select_db.php - switching databases in mysql
