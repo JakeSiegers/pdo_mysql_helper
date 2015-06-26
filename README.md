@@ -15,6 +15,7 @@ $dbc = new pdo_mysql_helper();
 # Examples 
 
 **Note**: In order to run these examples, you will need to load the database dumps into your database (located at /Examples/example-database-dumps). You will also need to rename the creds.template.php to creds.php and then setup your database info inside it.
-You can find examples located in the examples folder. The current examples include
+
+Current Examples:
 * query.php - a basic mysql query example
 * select_db.php - switching databases in mysql
