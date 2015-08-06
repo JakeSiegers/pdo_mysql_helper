@@ -19,6 +19,7 @@ $dbc = new pdo_mysql_helper();
 Current Examples:
 * query.php - a basic mysql query example
 * select_db.php - switching databases in mysql
+* insert_id.php - Example showing the last insert id after a insert statement
 
 # Changelog
 ## v0.2 - Beta
