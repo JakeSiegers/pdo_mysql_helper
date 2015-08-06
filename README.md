@@ -19,3 +19,16 @@ $dbc = new pdo_mysql_helper();
 Current Examples:
 * query.php - a basic mysql query example
 * select_db.php - switching databases in mysql
+
+# Changelog
+## v0.2 - Beta
+* The first beta release
+* Finalized class structure
+* Implemented all basic database methods
+* Updated examples and added a "insert_id" example
+* Updated example database dumps
+* Properly Throws 'pdo_mysql_helper_exception' Exceptions on DB errors
+
+### Roadmap from here
+*Testing testing testing! - I'll be using this in my own projects, so any issues I notice will be fixed immediately
+*Full documentation of the library - I'd love to get some PHPDocs set up for this library. I also want to get some more examples set up to help with using the library. 
