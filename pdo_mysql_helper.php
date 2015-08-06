@@ -1,6 +1,9 @@
 <?php
 	//The Mysqli Helper 2015 - Jake Siegers
 	//MIT License (See included LICENSE file)
+	
+	//Just creating our own type of exception - no need to make it special other than a custom exception name type.
+	class pdo_mysql_helper_exception extends Exception{}
 
 	class pdo_mysql_helper{
 
@@ -64,7 +67,7 @@
 
 		private function throwError($msg){
 			$this->lastError = $this->errorPrefix.$msg;
-			throw new Exception($this->lastError);
+			throw new pdo_mysql_helper_exception($this->lastError);
 		}
 
 		// ==============================================================================================================
