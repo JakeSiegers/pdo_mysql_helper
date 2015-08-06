@@ -8,7 +8,19 @@ This library also supports parameterized queries, which you **should always use*
 
 # Usage
 ```
-$dbc = new pdo_mysql_helper();
+$dbc = new pdo_mysql_helper("location/of/credentials.php");
+```
+"location/of/credentials.php" would contain the credentials used to connect to the database.
+This file template is located in Examples/creds
+```
+//location/of/credentials.php
+<?php
+	$server = 'localhost';
+	$user = '';
+	$password = '';
+	$database = 'pdo-mysql-helper-example';
+	$port = 3306;
+?>
 ```
 [More Documentation coming very shortly]
 
