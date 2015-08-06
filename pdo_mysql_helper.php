@@ -63,9 +63,8 @@
 		}
 
 		private function throwError($msg){
-			$this->error = true;
-			$this->errorDesc = $this->errorPrefix.$msg;
-			throw new Exception($this->errorDesc);
+			$this->lastError = $this->errorPrefix.$msg;
+			throw new Exception($this->lastError);
 		}
 
 		// ==============================================================================================================
@@ -93,53 +92,91 @@
 		}
 		
 		function insert_id($query = null,$params = null){
-			return $this->pdo->lastInsertId();
+			if($query !== null){
+				$this->query($query,$params);
+			}
+			try {
+				return $this->pdo->lastInsertId();
+			} catch (PDOException $e) {
+				$this->throwError($e->getMessage());
+				return false;
+			}	
 		}
 
 		function num_rows($query = null,$params = null){
 			if($query !== null){
 				$this->query($query,$params);
 			}
-			return $this->preparedStatement->rowCount();
+			try {
+				return $this->preparedStatement->rowCount();
+			} catch (PDOException $e) {
+				$this->throwError($e->getMessage());
+				return false;
+			}
 		}
 
 		function fetch_array($query = null,$params = null){
 			if($query !== null){
 				$this->query($query,$params);
 			}
-			return $this->preparedStatement->fetch(PDO::FETCH_NUM);
+			try {
+				return $this->preparedStatement->fetch(PDO::FETCH_NUM);
+			} catch (PDOException $e) {
+				$this->throwError($e->getMessage());
+				return false;
+			}
 		}
 
 		function fetch_all_array($query = null,$params = null){
 			if($query !== null){
 				$this->query($query,$params);
 			}
-			return $this->preparedStatement->fetchAll(PDO::FETCH_NUM);
+			try {
+				return $this->preparedStatement->fetchAll(PDO::FETCH_NUM);
+			} catch (PDOException $e) {
+				$this->throwError($e->getMessage());
+				return false;
+			}
 		}
 
 		function last_error(){
-			return $this->errorDesc;
+			return $this->lastError;
 		}
 
 		function fetch_assoc($query = null,$params = null){
 			if($query !== null){
 				$this->query($query,$params);
 			}
-			return $this->preparedStatement->fetch(PDO::FETCH_ASSOC);
+			try {
+				return $this->preparedStatement->fetch(PDO::FETCH_ASSOC);
+			} catch (PDOException $e) {
+				$this->throwError($e->getMessage());
+				return false;
+			}
 		}
 
 		function fetch_all_assoc($query = null,$params = null){
 			if($query !== null){
 				$this->query($query,$params);
 			}
-			return $this->preparedStatement->fetchAll(PDO::FETCH_ASSOC);
+			try {
+				return $this->preparedStatement->fetchAll(PDO::FETCH_ASSOC);
+			} catch (PDOException $e) {
+				$this->throwError($e->getMessage());
+				return false;
+			}
 		}
 
 		function fetch_column($query = null,$params = null){
 			if($query !== null){
 				$this->query($query,$params);
 			}
-			return $this->preparedStatement->fetchColumn();
+			try {
+				return $this->preparedStatement->fetchColumn();
+			} catch (PDOException $e) {
+				$this->throwError($e->getMessage());
+				return false;
+			}
 		}
 
 	}
