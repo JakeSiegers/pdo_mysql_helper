@@ -22,6 +22,14 @@ This file template is located in Examples/creds
 	$port = 3306;
 ?>
 ```
+Once you have your pdo_mysql_helper object set up, you can then start executing queries!
+```
+//Query
+$dbc->query("SELECT * FROM users WHERE age > 25");
+//Results
+var_dump($dbc->fetch_all_assoc());
+```
+
 [More Documentation coming very shortly]
 
 # Examples 
