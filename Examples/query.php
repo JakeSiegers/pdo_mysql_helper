@@ -14,6 +14,16 @@
 	//create a pdo helper object
 	$dbc = new pdo_mysql_helper("creds/creds.php");
 
+	//Run a basic query
+	$dbc->query("SELECT id,fname,lname,age FROM users");
+	
+	//Dump results
+	echo 'All Users';
+	echo '<pre>';
+	var_dump($dbc->fetch_all_assoc());
+	echo '</pre>';
+
+
 	//Let's set a min age to pull from 'users'
 	$minAge = 25;	
 
@@ -21,6 +31,7 @@
 	$dbc->query("SELECT id,fname,lname,age FROM users WHERE age >= ?",array($minAge));
 	
 	//Dump results
+	echo 'Age > 25';
 	echo '<pre>';
 	var_dump($dbc->fetch_all_assoc());
 	echo '</pre>';

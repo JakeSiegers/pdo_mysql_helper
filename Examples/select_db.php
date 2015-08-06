@@ -1,8 +1,6 @@
 <?php
 	/*
-		SELECT Database example - using the pdo_mysql_helper to change databases after we've already created a pdo_mysql_helper object
-		In this case, we will be getting all users from the 
-		(a dump of this database is avaiable in this repo)
+		Select_DB Example - Connect to a database and select some data - then switch to a different database on the same server and select some other data!
 	*/
 
 	//Load up some CSS to make our example look nicer :)
@@ -14,11 +12,8 @@
 	//create a pdo helper object
 	$dbc = new pdo_mysql_helper("creds/creds.php");
 
-	//Let's set a min age to pull from 'users'
-	$minAge = 25;
-
-	//Run the query, using parameters
-	$dbc->query("SELECT * FROM users WHERE age >= ?",array($minAge));
+	//Select from table in first database
+	$dbc->query("SELECT * FROM users");
 	
 	//Dump results
 	echo '<pre>';
@@ -29,7 +24,7 @@
 	$dbc->select_db('pdo-mysql-helper-other-example');
 	
 	//Select from table in new database
-	$dbc->query("SELECT * FROM places");
+	$dbc->query("SELECT * FROM users");
 	
 	//Dump results
 	echo '<pre>';

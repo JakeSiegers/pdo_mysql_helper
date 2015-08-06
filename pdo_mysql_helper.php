@@ -68,10 +68,6 @@
 			throw new Exception($this->errorDesc);
 		}
 
-		private function show_stack(){
-
-		}
-
 		// ==============================================================================================================
 		// PUBLIC FUNCTIONS BELOW
 		// ==============================================================================================================
@@ -96,17 +92,29 @@
 			$this->query("USE {$new_database}");
 		}
 		
-		function insert_id(){}
-		function affected_rows(){}
-		function num_rows(){}
-		function fetch_array(){}
-		function fetch_all_array(){}
+		function insert_id($query = null,$params = null){
+			return $this->pdo->lastInsertId();
+		}
 
-		function rowCount($query = null,$params = null){
+		function num_rows($query = null,$params = null){
 			if($query !== null){
 				$this->query($query,$params);
 			}
 			return $this->preparedStatement->rowCount();
+		}
+
+		function fetch_array($query = null,$params = null){
+			if($query !== null){
+				$this->query($query,$params);
+			}
+			return $this->preparedStatement->fetch(PDO::FETCH_NUM);
+		}
+
+		function fetch_all_array($query = null,$params = null){
+			if($query !== null){
+				$this->query($query,$params);
+			}
+			return $this->preparedStatement->fetchAll(PDO::FETCH_NUM);
 		}
 
 		function last_error(){
@@ -124,11 +132,7 @@
 			if($query !== null){
 				$this->query($query,$params);
 			}
-			$result = array();
-			while($row = $this->preparedStatement->fetch(PDO::FETCH_ASSOC)){
-				$result[] = $row;
-			}
-			return $result;
+			return $this->preparedStatement->fetchAll(PDO::FETCH_ASSOC);
 		}
 
 		function fetch_column($query = null,$params = null){
