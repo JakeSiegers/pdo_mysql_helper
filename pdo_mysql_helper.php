@@ -58,11 +58,12 @@
 
 			try {
 				$this->pdo = new PDO('mysql:dbname='.$this->database.';host='.$this->server.';port='.$this->port,$this->user,$this->password);
+				$this->pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 			} catch (PDOException $e) {
 				$this->throwError($e->getMessage());
 				return false;
 			}
-			$this->pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+			
 		}
 
 		private function throwError($msg){
