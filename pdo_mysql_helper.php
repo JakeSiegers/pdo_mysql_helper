@@ -1,5 +1,5 @@
 <?php
-	//The Mysqli Helper 2015 - Jake Siegers
+	//The Pdo Mysql Helper 2015 - Jake Siegers
 	//MIT License (See included LICENSE file)
 	
 	//Just creating our own type of exception - no need to make it special other than a custom exception name type.
